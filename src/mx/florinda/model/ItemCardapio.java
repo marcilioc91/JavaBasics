@@ -9,6 +9,14 @@ public class ItemCardapio {
     private double precoComDesconto;
     private CategoriaCardapio categoria;
 
+    public ItemCardapio(long id, String nome, String descricao, double preco, CategoriaCardapio categoria) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.categoria = categoria;
+    }
+
     public long getId() {
         return id;
     }
@@ -35,14 +43,6 @@ public class ItemCardapio {
 
     public CategoriaCardapio getCategoria() {
         return categoria;
-    }
-
-    public ItemCardapio(long id, String nome, String descricao, double preco, CategoriaCardapio categoria) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.categoria = categoria;
     }
 
     public double setPorcentagemDesconto() {
