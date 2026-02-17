@@ -4,9 +4,9 @@ public class FabricaLeitorItensCardapio {
     public LeitorItensCardapio criaLeitor(String nomeArquivo) {
         LeitorItensCardapio leitor = null;
         if (nomeArquivo.endsWith(".csv")) {
-            return new LeitorItensCardapioCsv();
+            return new LeitorItensCardapioCsv(nomeArquivo);
         } else if (nomeArquivo.endsWith(".json")) {
-            return new LeitorItensCardapioJson();
+            return new LeitorItensCardapioGSON(nomeArquivo);
         } else {
             return leitor;
         }
