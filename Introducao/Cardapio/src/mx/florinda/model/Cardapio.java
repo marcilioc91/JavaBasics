@@ -9,7 +9,7 @@ public class Cardapio {
 
     private final ItemCardapio[] itens;
 
-    public Cardapio(String nomeArquivo) throws IOException {
+    public Cardapio(String nomeArquivo) throws Exception, IOException {
         FabricaLeitorItensCardapio fabricaLeitor = new FabricaLeitorItensCardapio();
         LeitorItensCardapio leitor = fabricaLeitor.criaLeitor(nomeArquivo);
         if (leitor != null)

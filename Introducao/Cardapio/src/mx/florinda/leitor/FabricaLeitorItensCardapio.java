@@ -1,14 +1,13 @@
 package mx.florinda.leitor;
 
 public class FabricaLeitorItensCardapio {
-    public LeitorItensCardapio criaLeitor(String nomeArquivo) {
-        LeitorItensCardapio leitor = null;
+    public static LeitorItensCardapio criaLeitor(String nomeArquivo) throws Exception {
         if (nomeArquivo.endsWith(".csv")) {
             return new LeitorItensCardapioCsv(nomeArquivo);
         } else if (nomeArquivo.endsWith(".json")) {
             return new LeitorItensCardapioGSON(nomeArquivo);
         } else {
-            return leitor;
+            throw new Exception("Extensão do arquivo é inválida: " + nomeArquivo);
         }
     }
 }
