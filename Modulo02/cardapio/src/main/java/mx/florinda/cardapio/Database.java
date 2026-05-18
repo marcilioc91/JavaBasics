@@ -8,7 +8,8 @@ import static mx.florinda.cardapio.ItemCardapio.CategoriaCardapio.*;
 public class Database {
 
     private final Map<Long, ItemCardapio> itensPorId = new HashMap<>();
-    public Database(){
+
+    public Database() {
 
         var refrescoDoChaves = new ItemCardapio(1L, "Refresco do Chaves",
                 "Suco de limão que parece de tamarindo e tem gosto de groselha.",
@@ -23,7 +24,7 @@ public class Database {
         var tortaDaDonaFlorinda = new ItemCardapio(5L, "Torta de Frango da Dona Florinda",
                 "Torta de frango com recheio cremoso e massa crocante.",
                 PRATOS_PRINCIPAIS, new BigDecimal("12.99"), new BigDecimal("10.99"));
-        itensPorId.put(5L,tortaDaDonaFlorinda);
+        itensPorId.put(5L, tortaDaDonaFlorinda);
 
         var pipocaDoQuico = new ItemCardapio(6L, "Pipoca do Quico",
                 "Balde de pipoca preparado com carinho pelo Quico.",
@@ -40,14 +41,17 @@ public class Database {
                 SOBREMESA, new BigDecimal("4.99"), new BigDecimal("3.99"));
         itensPorId.put(9L, churrosDoChaves);
 
-//        return itensPorId;
     }
 
-    public List<ItemCardapio> listaDeItensCardapio(){
+    public List<ItemCardapio> listaDeItensCardapio() {
         return new ArrayList<>(itensPorId.values());
     }
 
     public Optional<ItemCardapio> itemCardapioPorId(Long itemId) {
         return Optional.ofNullable(itensPorId.get(itemId));
+    }
+
+    public void adicionaItemCardapio(ItemCardapio itemCardapio) {
+        itensPorId.put(itemCardapio.id(), itemCardapio);
     }
 }

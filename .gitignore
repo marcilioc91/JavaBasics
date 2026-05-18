@@ -1,0 +1,5 @@
+.git
+**/.idea
+**/.mvn
+**/settings.gradle
+**/*.jmx
