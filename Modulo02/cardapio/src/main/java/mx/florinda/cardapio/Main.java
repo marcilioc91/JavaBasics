@@ -1,62 +1,24 @@
 package mx.florinda.cardapio;
 
-import java.util.*;
-
-import static mx.florinda.cardapio.ItemCardapio.CategoriaCardapio.*;
+import java.math.BigDecimal;
+import java.util.List;
 
 public class Main {
-    static void main() {
-        Database database = new Database();
-//        List<ItemCardapio> itens = database.listaDeItensCardapio();
+    static void main(String[] args) {
+        SQLDatabase sql = new SQLDatabase();
+        List<ItemCardapio> listaItemCardapios = sql.listaDeItensCardapio();
 
-//        Set<ItemCardapio.CategoriaCardapio> categorias = new HashSet<>();
-//        for (ItemCardapio item : itens) {
-//            ItemCardapio.CategoriaCardapio categoria = item.categoria();
-//            categorias.add(categoria);
-//        }
-//        for (ItemCardapio.CategoriaCardapio categoria : categorias) {
-//            System.out.println(categoria);
-//        }
+        listaItemCardapios.forEach(System.out::println);
 
-        /*Optional<ItemCardapio> optionalItem = database.itemCardapioPorId(1L);
-        String mensagem = optionalItem.map(ItemCardapio::toString).orElse("Não encontrado");
-        System.out.println(mensagem);
+        System.out.println("==================================================");
 
-        System.out.println("===========================");
+        System.out.println("Total de itens no banco: " + sql.totalItensCardapio());
 
-        Set<ItemCardapio.CategoriaCardapio> categoriaPromocoes = new TreeSet<>();
-        categoriaPromocoes.add(SOBREMESA);
-        categoriaPromocoes.add(ENTRADAS);
-        categoriaPromocoes.forEach(System.out::println);
+        System.out.println("==================================================");
 
-        System.out.println("-----------------------");
-
-        Set<ItemCardapio.CategoriaCardapio> categoriaPromocoes2 = Set.of(SOBREMESA, ENTRADAS);
-        categoriaPromocoes2.forEach(System.out::println);
-//        categoriaPromocoes2.add(PRATOS_PRINCIPAIS); formato não permite adição
-
-        System.out.println("-----------------------");
-
-        Set<ItemCardapio.CategoriaCardapio> categoriaPromocoes3 = EnumSet.of(SOBREMESA, ENTRADAS);
-        categoriaPromocoes3.add(PRATOS_PRINCIPAIS);
-        categoriaPromocoes3.forEach(System.out::println);
-
-        System.out.println("-----------------------");
-
-        //Descrições associadas as categorias em promoção.
-        Map<ItemCardapio.CategoriaCardapio, String> promocoes = new EnumMap<>(ItemCardapio.CategoriaCardapio.class);
-        promocoes.put(SOBREMESA, "O doce perfeito para você!");
-        promocoes.put(ENTRADAS, "Comece a sua refeição com um grande toque de sabor!");
-        System.out.println(promocoes);*/
-
-        //Criar histórico de visualização
-        HistoricoVisualizacao historico = new HistoricoVisualizacao(database);
-        historico.registrarVisualizacao(1L);
-        historico.registrarVisualizacao(2L);
-        historico.registrarVisualizacao(5L);
-        historico.registrarVisualizacao(6L);
-
-        historico.mostrarItensVisualizados();
-        historico.listarItensVisualizados();
+//        ItemCardapio itemCardapio = new ItemCardapio(10L, "Pavê", "Sobremesa bastante recheado", ItemCardapio.CategoriaCardapio.SOBREMESA,
+//                new BigDecimal(5.0), new BigDecimal(4.0));
+//
+//        sql.adicionaItemCardapio(itemCardapio);
     }
 }
