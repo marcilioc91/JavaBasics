@@ -3,3 +3,5 @@
 **/.mvn
 **/settings.gradle
 **/*.jmx
+*.txt
+*.log*
