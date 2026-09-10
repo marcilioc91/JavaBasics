@@ -5,3 +5,22 @@
 **/*.jmx
 *.txt
 *.log*
+
+# Saída de compilação / build
+target/
+build/
+out/
+bin/
+*.class
+
+# IntelliJ (arquivos de módulo)
+*.iml
+*.ipr
+*.iws
+
+# Saída dos exercícios de serialização
+*.ser
+Modulo02/cardapio/pix
+
+# Pacotes exportados
+*.zip

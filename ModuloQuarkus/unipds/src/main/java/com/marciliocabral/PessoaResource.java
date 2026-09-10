@@ -27,7 +27,15 @@ public class PessoaResource {
     @Transactional
     public Pessoa updatePessoa(Pessoa pessoa){
         Pessoa p = Pessoa.findById(pessoa.id);
+        p.nome = pessoa.nome;
+        p.anoNascimento = pessoa.anoNascimento;
         p.persist();
         return p;
+    }
+
+    @GET
+    @Path("findByAnoNascimento")
+    public List<Pessoa> findByAnoNascimento(@QueryParam("AnoNascimento") int anoNascimento) {
+        return Pessoa.findByAnoNascimento(anoNascimento);
     }
 }
